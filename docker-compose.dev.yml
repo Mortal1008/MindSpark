@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mindspark-app:
+    build:
+      context: .
+    container_name: mindspark-app-dev
+    ports:
+      - "8501:8501"
+    environment:
+      - MINDSPARK_ENV=development
+      - DEV_MODE=true
+      - STORAGE_DIR=storage
+      - CONFIG_STORE_FILE=config_store.json
+      - CHAT_STORE_FILE=chat_store.json
+    volumes:
+      - ./data:/app/data
+      - ./storage:/app/storage
+      - ./localmodels:/app/localmodels
+    networks:
+      - mindspark-network
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+networks:
+  mindspark-network:
+    driver: bridge
