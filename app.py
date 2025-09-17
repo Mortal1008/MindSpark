@@ -29,7 +29,11 @@ if __name__ == "__main__":
     )
 
     inject_global_css()
+<<<<<<< HEAD
     st.logo("frontend/images/MindSpark_Logo.png")
+=======
+    st.logo("frontend/images/MindSpark_logo.png")
+>>>>>>> 0230af5bf3f1839a79ea642bd33ff50795920dd7
 
     if not hasattr(st.session_state, "initialized"):
         init_state()

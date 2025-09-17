@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 FROM python:3.11-slim AS builder
+=======
+FROM python:3.11-slim as builder
+>>>>>>> 0230af5bf3f1839a79ea642bd33ff50795920dd7
 
 # 安装系统依赖（包括编译工具）
 RUN apt-get update && apt-get install -y \
